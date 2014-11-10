@@ -1,0 +1,27 @@
+<head>
+  <title>SpeakEasy</title>
+</head>
+
+<body>
+  {{> insertFile}}
+  {{#if checkInputAudioFile}}
+    {{> audioPlayer}}
+  {{/if}}
+</body>
+
+<template name="insertFile">
+	<form class="new-file">
+		<label>
+			Insert audio file ->
+			<input type="file" accept="audio/*"/>
+		</label>
+	</form>
+</template>
+
+<template name="audioPlayer">
+	<span>filename: {{inputAudioFile.file.name}}</span>
+	<br>
+   <canvas class="visualizer" width="640" height="100"></canvas> 
+   <br>
+	<audio controls src={{inputAudioFile.url}}></audio>
+</template>
